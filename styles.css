@@ -1369,33 +1369,36 @@ ul {
 .github-flex-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 30px;
     justify-content: center;
-    align-items: stretch;
-    margin-top: 2rem;
+    align-items: flex-start; /* Keeps them aligned at the top */
 }
 
 .calendar-column {
     flex: 1.5;
     min-width: 320px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
 }
 
+/* THE FIX: Fixed height for the chart container */
 .chart-column {
     flex: 1;
     min-width: 300px;
-    height: 300px; /* Fixed height for the line chart */
+    height: 350px; /* Force a height so the chart isn't 0px tall */
+    position: relative; 
 }
 
-/* Fix Hover for squares */
-.calendar-grid rect:hover {
-    fill: #2563EB !important;
+.chart-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: 100%; /* Fill the 350px column */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Clean up extra library text */
-.contrib-footer, .sr-only {
-    display: none !important;
+/* Ensure the canvas fills the card */
+#activityChart {
+    width: 100% !important;
+    height: 100% !important;
 }
