@@ -472,11 +472,22 @@
             </div>
            <section id="github" class="github-section">
     <div class="container">
-        <h2 class="section-title">GitHub Activity</h2>
-        <div class="calendar-grid">
+        <h2 class="section-title">GitHub Activity & Trends</h2>
+        <div class="github-flex-container">
+            <div class="calendar-column">
+                <div class="calendar-grid"></div>
             </div>
+            
+            <div class="chart-column">
+                <div class="chart-card">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
-           </section>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <div class="github-showcase">
                 <h3>Top Repositories</h3>
                 <div class="repo-grid">
