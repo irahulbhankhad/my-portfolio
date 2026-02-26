@@ -1334,29 +1334,35 @@ ul {
     margin-bottom: 0 !important;
 }
 
-/* Target the container and hide EVERYTHING except the actual chart */
-.calendar-grid .width-full.textAlign-left, 
-.calendar-grid .sr-only,
-.calendar-grid .contrib-footer,
-.calendar-grid .Box-footer {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+/* Center the container */
+.github-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-/* Force the actual chart to be visible and centered */
+/* The wrapper that allows swiping on mobile */
+.calendar-grid {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border: none !important;
+}
+
+/* Target ONLY the footer and skip-link */
+.calendar-grid .contrib-footer,
+.calendar-grid .sr-only,
+.calendar-grid .Box-footer {
+    display: none !important;
+}
+
+/* Ensure the chart itself is centered and visible */
 .calendar-grid .js-github-chart {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-}
-
-/* Fix for mobile responsiveness */
-.calendar-grid {
-    border: none !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
