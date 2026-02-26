@@ -105,35 +105,69 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+const username = "irahulbhankhad";
 
-// Initialize Calendar
-GitHubCalendar(".calendar-grid", "irahulbhankhad", { responsive: true, global_stats: false });
-
-// Initialize Activity Line Chart
-const ctx = document.getElementById('activityChart').getContext('2d');
-new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // You can update these labels
-        datasets: [{
-            label: 'Commits',
-            data: [12, 19, 3, 5, 2, 25], // Add your recent commit numbers here
-            borderColor: '#2563EB',
-            backgroundColor: 'rgba(37, 99, 235, 0.1)',
-            borderWidth: 3,
-            tension: 0.4, // Makes the line smooth/curvy
-            pointBackgroundColor: '#2563EB'
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-            y: { beginAtZero: true, grid: { display: false } },
-            x: { grid: { display: false } }
-        }
-    }
+// 1. Load the Grid Calendar
+GitHubCalendar(".calendar-grid", username, { 
+    responsive: true, 
+    global_stats: false 
 });
+
+// 2. Fetch Real Data for the Line Chart
+async function loadChartData() {
+    try {
+        // Using a public contribution API to get monthly totals
+        const response = await fetch(`https://github-contributions-api.deno.dev/${username}.json`);
+        const data = await response.json();
+        
+        // Process data for the last 6 months
+        const lastSixMonths = data.contributions.slice(-180); // Roughly 6 months
+        // Group by month names
+        const monthlyData = {};
+        lastSixMonths.forEach(day => {
+            const month = new Date(day.date).toLocaleString('default', { month: 'short' });
+            monthlyData[month] = (monthlyData[month] || 0) + day.count;
+        });
+
+        renderLineChart(Object.keys(monthlyData), Object.values(monthlyData));
+    } catch (error) {
+        console.error("Error fetching GitHub data:", error);
+        // Fallback with dummy data if API fails
+        renderLineChart(['Jan', 'Feb', 'Mar', 'Apr', 'May'], [5, 12, 8, 15, 10]);
+    }
+}
+
+function renderLineChart(labels, dataValues) {
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Monthly Contributions',
+                data: dataValues,
+                borderColor: '#2563EB', // Your Blue
+                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                borderWidth: 3,
+                tension: 0.4, // Curvy line
+                fill: true,
+                pointBackgroundColor: '#2563EB',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#f0f0f0' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+}
+
+loadChartData();
 // Initialize GitHub calendar
 generateGitHubCalendar();
 
