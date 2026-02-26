@@ -112,7 +112,7 @@ document.head.appendChild(style);
 // Pure initialization
 GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
     responsive: true,
-    global_stats: false // This already removes the right-side stats
+    global_stats: false // This stops the stats from appearing on the right
 });
 // Initialize GitHub calendar
 generateGitHubCalendar();
