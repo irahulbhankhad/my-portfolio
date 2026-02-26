@@ -1366,34 +1366,36 @@ ul {
     visibility: hidden !important;
 }
 
-/* Layout */
 .github-flex-container {
     display: flex;
-    gap: 30px;
-    align-items: center;
     flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
+    align-items: stretch;
+    margin-top: 2rem;
 }
 
-.calendar-column { flex: 2; min-width: 320px; }
-.chart-column { flex: 1; min-width: 300px; }
+.calendar-column {
+    flex: 1.5;
+    min-width: 320px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
 
-/* Calendar Squares Hover Color */
+.chart-column {
+    flex: 1;
+    min-width: 300px;
+    height: 300px; /* Fixed height for the line chart */
+}
+
+/* Fix Hover for squares */
 .calendar-grid rect:hover {
     fill: #2563EB !important;
-    cursor: pointer;
 }
 
-/* White Chart Card with Shadow */
-.chart-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f0f0f0;
-}
-
-/* Hide Extra Labels */
-.calendar-grid .sr-only, .calendar-grid .contrib-footer {
+/* Clean up extra library text */
+.contrib-footer, .sr-only {
     display: none !important;
 }
