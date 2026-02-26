@@ -1333,3 +1333,30 @@ ul {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
 }
+
+/* Target the container and hide EVERYTHING except the actual chart */
+.calendar-grid .width-full.textAlign-left, 
+.calendar-grid .sr-only,
+.calendar-grid .contrib-footer,
+.calendar-grid .Box-footer {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Force the actual chart to be visible and centered */
+.calendar-grid .js-github-chart {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+/* Fix for mobile responsiveness */
+.calendar-grid {
+    border: none !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
