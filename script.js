@@ -105,47 +105,13 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-// GitHub Calendar Generation
-function generateGitHubCalendar() {
-    const calendarGrid = document.querySelector('.calendar-grid');
-    const weeks = 52;
-    const days = 7;
-
-    for (let i = 0; i < weeks; i++) {
-        for (let j = 0; j < days; j++) {
-            const day = document.createElement('div');
-            day.classList.add('calendar-day');
-
-            // Random contribution level for demo
-            const randomLevel = Math.random();
-            if (randomLevel > 0.6) {
-                day.classList.add('level-4');
-            } else if (randomLevel > 0.4) {
-                day.classList.add('level-3');
-            } else if (randomLevel > 0.2) {
-                day.classList.add('level-2');
-            } else if (randomLevel > 0.1) {
-                day.classList.add('level-1');
-            }
-
-            day.title = `${getRandomDate()} - ${getRandomContributions()} contributions`;
-            calendarGrid.appendChild(day);
-        }
-    }
-}
-
-function getRandomDate() {
-    const start = new Date(2023, 0, 1);
-    const end = new Date();
-    const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    return randomDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-}
-
-function getRandomContributions() {
-    return Math.floor(Math.random() * 15);
-}
-
+// Initialize Real GitHub Calendar
+// This targets your .calendar-grid div and pulls data for 'irahulbhankhad'
+GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
+    responsive: true, 
+    tooltips: true,
+    summaryText: "Summary of my GitHub contributions"
+});
 // Initialize GitHub calendar
 generateGitHubCalendar();
 
