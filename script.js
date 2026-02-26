@@ -105,12 +105,14 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
 // Initialize Real GitHub Calendar
 // This targets your .calendar-grid div and pulls data for 'irahulbhankhad'
+// Initialize Real GitHub Calendar without extra stats
 GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
     responsive: true, 
     tooltips: true,
-    summaryText: "Summary of my GitHub contributions"
+    global_stats: false // This removes the "Longest streak", "Total contributions", etc.
 });
 // Initialize GitHub calendar
 generateGitHubCalendar();
