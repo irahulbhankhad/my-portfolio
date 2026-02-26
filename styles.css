@@ -1214,3 +1214,32 @@ ul {
         align-items: flex-start;
     }
 }
+
+/* Center the GitHub Calendar and make it clean */
+.github-calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the heading and grid */
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.calendar-grid {
+    border: none !important; /* Removes the border if you don't want it */
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Hide the 'Learn how we count contributions' and 'Summary' text if still visible */
+.calendar-grid .contrib-column, 
+.calendar-grid .contrib-footer {
+    display: none !important;
+}
+
+/* Centers the actual SVG grid inside the div */
+.js-github-chart {
+    display: flex;
+    justify-content: center;
+}
