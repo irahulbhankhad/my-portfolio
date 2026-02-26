@@ -1365,3 +1365,39 @@ ul {
     height: 0 !important;
     visibility: hidden !important;
 }
+
+/* Flex Layout for side-by-side view */
+.github-flex-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Stacks on mobile */
+    justify-content: center;
+}
+
+.calendar-column { flex: 2; min-width: 300px; }
+.chart-column { flex: 1; min-width: 300px; }
+
+/* The Line Chart Card */
+.chart-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* CALENDAR HOVER EFFECT (#2563EB) */
+/* This targets the squares inside the generated SVG */
+.calendar-grid rect:hover {
+    fill: #2563EB !important;
+    transition: fill 0.2s ease;
+}
+
+/* Hide extra lines you didn't like */
+.calendar-grid .sr-only, .calendar-grid .contrib-footer {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .github-flex-container { flex-direction: column; }
+}
