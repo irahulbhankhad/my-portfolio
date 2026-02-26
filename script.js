@@ -415,3 +415,20 @@ scrollToTopBtn.addEventListener('click', () => {
 // Console log for developers
 console.log('%c Data Analytics Portfolio ', 'background: #2563eb; color: white; padding: 10px; font-size: 20px; border-radius: 5px;');
 console.log('%c Created with ❤️ by Rahul Bhankhad ', 'background: #1e293b; color: white; padding: 10px; font-size: 14px; border-radius: 5px;');
+
+// This function finds and kills those 2 lines specifically
+const cleanGitHubCalendar = () => {
+    const extraLines = document.querySelectorAll('.sr-only, .contrib-footer, .Box-footer');
+    extraLines.forEach(el => el.remove());
+};
+
+// Watch the calendar-grid for changes and clean it up
+const observer = new MutationObserver(cleanGitHubCalendar);
+const targetNode = document.querySelector('.calendar-grid');
+
+if (targetNode) {
+    observer.observe(targetNode, { childList: true, subtree: true });
+}
+
+// Initial call just in case
+setTimeout(cleanGitHubCalendar, 500);
