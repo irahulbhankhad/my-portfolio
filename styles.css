@@ -1333,8 +1333,7 @@ ul {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
 }
-
-/* Center the container */
+/* Center the whole section */
 .github-section .container {
     display: flex;
     flex-direction: column;
@@ -1342,27 +1341,27 @@ ul {
     text-align: center;
 }
 
-/* The wrapper that allows swiping on mobile */
+/* The box that allows horizontal swiping on mobile */
 .calendar-grid {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    overflow-x: auto;
     border: none !important;
+    overflow-x: auto; /* Crucial for mobile */
+    display: block !important; /* Ensure it stays visible */
 }
 
-/* Target ONLY the footer and skip-link */
-.calendar-grid .contrib-footer,
-.calendar-grid .sr-only,
-.calendar-grid .Box-footer {
-    display: none !important;
-}
-
-/* Ensure the chart itself is centered and visible */
+/* CENTER THE ACTUAL CHART */
 .calendar-grid .js-github-chart {
     display: flex !important;
     justify-content: center !important;
-    width: 100% !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+}
+
+/* SURGICAL REMOVAL of those 2 lines */
+.calendar-grid .sr-only,      /* Hides "Skip to contributions..." */
+.calendar-grid .contrib-footer, /* Hides "Learn how we count..." */
+.calendar-grid .Box-footer {    /* Backup selector for the footer */
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
 }
