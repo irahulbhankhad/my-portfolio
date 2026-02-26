@@ -1215,11 +1215,31 @@ ul {
     }
 }
 
+/* GitHub Calendar Styling */
+.calendar-grid {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow-x: auto;
+    /* Makes it scrollable on mobile */
+}
+
+/* Ensure the calendar text matches your font */
+.calendar-grid text {
+    fill: #586069;
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Center the GitHub Calendar and make it clean */
 .github-calendar {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the heading and grid */
+    align-items: center;
+    /* Centers the heading and grid */
     justify-content: center;
     text-align: center;
     width: 100%;
@@ -1227,13 +1247,14 @@ ul {
 }
 
 .calendar-grid {
-    border: none !important; /* Removes the border if you don't want it */
+    border: none !important;
+    /* Removes the border if you don't want it */
     display: inline-block;
     margin: 0 auto;
 }
 
 /* Hide the 'Learn how we count contributions' and 'Summary' text if still visible */
-.calendar-grid .contrib-column, 
+.calendar-grid .contrib-column,
 .calendar-grid .contrib-footer {
     display: none !important;
 }
