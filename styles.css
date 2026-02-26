@@ -1303,3 +1303,33 @@ ul {
 .calendar-grid h2 {
     display: none !important;
 }
+
+
+/* 1. Hide the "Skip to" accessibility link */
+.calendar-grid .sr-only {
+    display: none !important;
+}
+
+/* 2. Hide the "Learn how we count contributions" footer */
+.calendar-grid .contrib-footer {
+    display: none !important;
+}
+
+/* 3. Hide the "Summary" or "Year List" headers if they appear */
+.calendar-grid h2.f4.text-normal.mb-3,
+.calendar-grid .js-year-link {
+    display: none !important;
+}
+
+/* 4. Center the remaining squares block */
+.calendar-grid .js-github-chart {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ensure the calendar container doesn't have extra padding after removing footer */
+.calendar-grid {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
