@@ -109,11 +109,6 @@ document.head.appendChild(style);
 // Initialize Real GitHub Calendar
 // This targets your .calendar-grid div and pulls data for 'irahulbhankhad'
 // Initialize Real GitHub Calendar without extra stats
-/*GitHubCalendar(".calendar-grid", "irahulbhankhad", {
-    responsive: true,
-    tooltips: true,
-    global_stats: false // This removes the "Longest streak", "Total contributions", etc.
-});*/
 GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
     responsive: true, // This tells the library to try and fit the width
     global_stats: false,
