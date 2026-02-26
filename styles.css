@@ -1366,38 +1366,34 @@ ul {
     visibility: hidden !important;
 }
 
-/* Flex Layout for side-by-side view */
+/* Layout */
 .github-flex-container {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    flex-wrap: wrap; /* Stacks on mobile */
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.calendar-column { flex: 2; min-width: 300px; }
+.calendar-column { flex: 2; min-width: 320px; }
 .chart-column { flex: 1; min-width: 300px; }
 
-/* The Line Chart Card */
-.chart-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-/* CALENDAR HOVER EFFECT (#2563EB) */
-/* This targets the squares inside the generated SVG */
+/* Calendar Squares Hover Color */
 .calendar-grid rect:hover {
     fill: #2563EB !important;
-    transition: fill 0.2s ease;
+    cursor: pointer;
 }
 
-/* Hide extra lines you didn't like */
+/* White Chart Card with Shadow */
+.chart-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* Hide Extra Labels */
 .calendar-grid .sr-only, .calendar-grid .contrib-footer {
     display: none !important;
-}
-
-@media (max-width: 768px) {
-    .github-flex-container { flex-direction: column; }
 }
