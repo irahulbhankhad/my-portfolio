@@ -105,68 +105,12 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-async function loadChartData() {
-    const username = "irahulbhankhad";
-    const canvas = document.getElementById('activityChart');
-    if (!canvas) return;
 
-    try {
-        const response = await fetch(`https://github-contributions-api.deno.dev/${username}.json`);
-        const data = await response.json();
-        
-        // Extract monthly data
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const monthlyTotals = {};
-        
-        data.contributions.slice(-180).forEach(day => {
-            const date = new Date(day.date);
-            const m = monthNames[date.getMonth()];
-            monthlyTotals[m] = (monthlyTotals[m] || 0) + day.count;
-        });
-
-        const labels = Object.keys(monthlyTotals);
-        const values = Object.values(monthlyTotals);
-
-        renderLineChart(labels, values);
-    } catch (e) {
-        console.error("Chart load failed, using fallback:", e);
-        renderLineChart(['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'], [15, 30, 20, 45, 10, 25]);
-    }
-}
-
-function renderLineChart(labels, dataValues) {
-    const ctx = document.getElementById('activityChart').getContext('2d');
-    
-    if (window.myChart) window.myChart.destroy();
-
-    window.myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: dataValues,
-                borderColor: '#2563EB',
-                backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                borderWidth: 3,
-                tension: 0.4,
-                fill: true,
-                pointBackgroundColor: '#2563EB'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false, // Allows chart to fill the 350px height
-            plugins: { legend: { display: false } },
-            scales: {
-                y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
-                x: { grid: { display: false } }
-            }
-        }
-    });
-}
-
-// Start everything
-window.onload = loadChartData;
+// Initialize the real calendar for your ID
+GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
+    responsive: true, 
+    global_stats: false 
+});
 // Initialize GitHub calendar
 generateGitHubCalendar();
 
