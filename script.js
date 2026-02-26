@@ -106,13 +106,33 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Initialize Real GitHub Calendar
-// This targets your .calendar-grid div and pulls data for 'irahulbhankhad'
-// Initialize Real GitHub Calendar without extra stats
-// Pure initialization
-GitHubCalendar(".calendar-grid", "irahulbhankhad", { 
-    responsive: true,
-    global_stats: false // This stops the stats from appearing on the right
+// Initialize Calendar
+GitHubCalendar(".calendar-grid", "irahulbhankhad", { responsive: true, global_stats: false });
+
+// Initialize Activity Line Chart
+const ctx = document.getElementById('activityChart').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // You can update these labels
+        datasets: [{
+            label: 'Commits',
+            data: [12, 19, 3, 5, 2, 25], // Add your recent commit numbers here
+            borderColor: '#2563EB',
+            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+            borderWidth: 3,
+            tension: 0.4, // Makes the line smooth/curvy
+            pointBackgroundColor: '#2563EB'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { beginAtZero: true, grid: { display: false } },
+            x: { grid: { display: false } }
+        }
+    }
 });
 // Initialize GitHub calendar
 generateGitHubCalendar();
