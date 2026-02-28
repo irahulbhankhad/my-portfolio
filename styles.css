@@ -12,10 +12,15 @@
     --transition: all 0.3s ease;
 }
 
+.project-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden; /* keeps image only in top section */
+}
+
 .project-image {
   position: relative;
-  height: 220px;      /* adjust as needed */
-  overflow: hidden;
+  height: 230px; /* blue/image area height */
 }
 
 .project-image img {
@@ -23,6 +28,29 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-info {
+  background: #fff;
+  padding: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Reset & Base Styles */
