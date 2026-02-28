@@ -5,6 +5,33 @@ const navLinks = document.querySelector('.nav-links');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
+const themeToggle = document.getElementById('themeToggle');
+const THEME_KEY = 'portfolio-theme'; // 'light' or 'dark'
+
+function applyTheme(theme) {
+    const isLight = theme === 'light';
+    document.body.classList.toggle('light-theme', isLight);
+    if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed', String(isLight));
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = isLight ? 'fas fa-fire-flame-curved' : 'fas fa-fire';
+        }
+    }
+}
+
+// Default OFF => dark
+const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+applyTheme(savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const nextTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+        localStorage.setItem(THEME_KEY, nextTheme);
+        applyTheme(nextTheme);
+    });
+}
+
 
 // Mobile Navigation Toggle
 hamburger.addEventListener('click', () => {
@@ -115,7 +142,8 @@ GitHubCalendar(".calendar-grid", "irahulbhankhad", {
     global_stats: false // This removes the "Longest streak", "Total contributions", etc.
 });
 // Initialize GitHub calendar
-generateGitHubCalendar();
+if (typeof generateGitHubCalendar === 'function') generateGitHubCalendar();
+
 
 // Animate progress bars on scroll
 const progressBars = document.querySelectorAll('.progress');
