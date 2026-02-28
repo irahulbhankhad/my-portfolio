@@ -1369,4 +1369,62 @@ ul {
 .calendar-grid:hover {
     animation: pulse 1.2s ease-in-out infinite;
 }
+/* Dark mode (when body does NOT have .light-theme) */
+body:not(.light-theme) {
+  background: #020617;
+  color: #f8fafc;
+  --dark-color: #f8fafc;   /* headings */
+  --gray-color: #cbd5e1;   /* paragraph text */
+  --light-color: #0b1220;  /* section bg */
+}
+
+body:not(.light-theme) .navbar {
+  background: rgba(2, 6, 23, 0.92);
+}
+
+body:not(.light-theme) .hero {
+  background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+}
+
+
+body:not(.light-theme) .about,
+body:not(.light-theme) .projects,
+body:not(.light-theme) .contact,
+body:not(.light-theme) .github-section,
+body:not(.light-theme) .skills {
+  background: #0b1220;
+}
+
+body:not(.light-theme) .project-card,
+body:not(.light-theme) .skill-category,
+body:not(.light-theme) .github-card,
+body:not(.light-theme) .repo-card,
+body:not(.light-theme) .contact-form,
+body:not(.light-theme) .stat,
+body:not(.light-theme) .tool-item {
+  background: #111827;
+}
+
+body:not(.light-theme) .name,
+body:not(.light-theme) .title,
+body:not(.light-theme) .tagline,
+body:not(.light-theme) .nav-links a,
+body:not(.light-theme) .project-info h3,
+body:not(.light-theme) .project-info p {
+  color: #f8fafc;
+}
+
+body:not(.light-theme) .btn-primary {
+  color: #ffffff; /* keeps button text visible */
+}
+
+body:not(.light-theme) .btn-secondary {
+  color: #93c5fd;
+  border-color: #3b82f6;
+}
+
+body:not(.light-theme) .logo span {
+  color: #f8fafc;
+}
+
 
