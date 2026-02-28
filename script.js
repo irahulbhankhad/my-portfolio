@@ -141,13 +141,124 @@ document.head.appendChild(style);
 // Initialize Real GitHub Calendar
 // This targets your .calendar-grid div and pulls data for 'irahulbhankhad'
 // Initialize Real GitHub Calendar without extra stats
-GitHubCalendar(".calendar-grid", "irahulbhankhad", {
-    responsive: true,
-    tooltips: true,
-    global_stats: false // This removes the "Longest streak", "Total contributions", etc.
-});
-// Initialize GitHub calendar
-generateGitHubCalendar();
+const githubSection = document.querySelector('#github[data-github-username]');
+const githubUsername = githubSection?.dataset.githubUsername || 'irahulbhankhad';
+
+if (typeof GitHubCalendar === 'function') {
+    GitHubCalendar(".calendar-grid", githubUsername, {
+        responsive: true,
+        tooltips: true,
+        global_stats: false // This removes the "Longest streak", "Total contributions", etc.
+    });
+}
+
+// GitHub stats cards: auto-connect these values from your GitHub profile
+loadGitHubStatsCards(githubUsername);
+
+async function loadGitHubStatsCards(username) {
+    const reposNode = document.getElementById('githubRepos');
+    const contributionsNode = document.getElementById('githubContributions');
+    const starsNode = document.getElementById('githubStars');
+    const linesNode = document.getElementById('githubLines');
+
+    if (!reposNode || !contributionsNode || !starsNode || !linesNode) {
+        return;
+    }
+
+    try {
+        const [profile, repos, events] = await Promise.all([
+            fetchGitHubUser(username),
+            fetchGitHubRepos(username),
+            fetchRecentGitHubEvents(username)
+        ]);
+
+        const repoCount = profile.public_repos ?? repos.length;
+        const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+        const estimatedLines = estimateLinesFromRepoSize(repos);
+        const recentContributions = countRecentContributions(events);
+
+        reposNode.textContent = formatCompact(repoCount);
+        contributionsNode.textContent = formatCompact(recentContributions);
+        starsNode.textContent = formatCompact(totalStars);
+        linesNode.textContent = formatCompact(estimatedLines);
+        linesNode.title = 'Estimated from public repository size';
+    } catch (error) {
+        console.warn('Failed to load GitHub stats cards:', error);
+    }
+}
+
+async function fetchGitHubUser(username) {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    if (!response.ok) throw new Error('Could not fetch GitHub user profile');
+    return response.json();
+}
+
+async function fetchGitHubRepos(username) {
+    const repos = [];
+    let page = 1;
+    const perPage = 100;
+
+    while (true) {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${page}&sort=updated`);
+        if (!response.ok) throw new Error('Could not fetch GitHub repositories');
+
+        const batch = await response.json();
+        repos.push(...batch);
+
+        if (batch.length < perPage) break;
+        page += 1;
+    }
+
+    return repos;
+}
+
+async function fetchRecentGitHubEvents(username) {
+    const pages = [1, 2, 3];
+    const requests = pages.map(page => fetch(`https://api.github.com/users/${username}/events/public?per_page=100&page=${page}`));
+    const responses = await Promise.all(requests);
+
+    const allEvents = [];
+    for (const response of responses) {
+        if (!response.ok) continue;
+        const batch = await response.json();
+        allEvents.push(...batch);
+    }
+
+    return allEvents;
+}
+
+function countRecentContributions(events) {
+    const contributionEvents = new Set([
+        'PullRequestEvent',
+        'IssuesEvent',
+        'IssueCommentEvent',
+        'PullRequestReviewEvent',
+        'PullRequestReviewCommentEvent',
+        'CreateEvent'
+    ]);
+
+    return events.reduce((sum, event) => {
+        if (event.type === 'PushEvent') {
+            return sum + (event.payload?.commits?.length || 0);
+        }
+
+        return sum + (contributionEvents.has(event.type) ? 1 : 0);
+    }, 0);
+}
+
+function estimateLinesFromRepoSize(repos) {
+    // GitHub repo.size is in KB. Convert to a rough line-count estimate.
+    const totalKb = repos.reduce((sum, repo) => sum + (repo.size || 0), 0);
+    const bytesPerLineEstimate = 35;
+    return Math.round((totalKb * 1024) / bytesPerLineEstimate);
+}
+
+function formatCompact(value) {
+    return new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        maximumFractionDigits: 1
+    }).format(Math.max(0, value));
+}
 
 // Animate progress bars on scroll
 const progressBars = document.querySelectorAll('.progress');
