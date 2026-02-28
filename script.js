@@ -41,6 +41,68 @@ function updateThemeProfileImages(isDark) {
     });
 }
 
+const orbitSymbols = Array.from(document.querySelectorAll('.profile-image-container .orbit-symbol'));
+const reduceMotionPref = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (orbitSymbols.length && !reduceMotionPref.matches) {
+    initRandomOrbitAnimation(orbitSymbols);
+}
+
+function initRandomOrbitAnimation(symbols) {
+    const configs = symbols.map((symbol, index) => {
+        const innerPass = index % 3 === 0;
+        const baseRadius = innerPass ? (70 + Math.random() * 60) : (125 + Math.random() * 105);
+        const phase = Math.random() * Math.PI * 2;
+
+        return {
+            symbol,
+            baseRadius,
+            phase,
+            speed: (index % 2 === 0 ? 1 : -1) * (0.34 + Math.random() * 0.5),
+            wobbleA: 10 + Math.random() * 24,
+            wobbleB: 8 + Math.random() * 20,
+            wobbleSpeedA: 0.55 + Math.random() * 0.55,
+            wobbleSpeedB: 0.45 + Math.random() * 0.6,
+            driftX: 8 + Math.random() * 18,
+            driftY: 8 + Math.random() * 18,
+            depthShift: Math.random() * Math.PI * 2,
+            tilt: 0.52 + Math.random() * 0.36,
+            glyphSpin: (Math.random() - 0.5) * 26
+        };
+    });
+
+    const start = performance.now();
+
+    const animate = (now) => {
+        const t = (now - start) / 1000;
+
+        configs.forEach((config) => {
+            const theta = config.phase + t * config.speed;
+            const radiusNoise = Math.sin(t * config.wobbleSpeedA + config.phase) * config.wobbleA +
+                Math.cos(t * config.wobbleSpeedB + config.depthShift) * config.wobbleB;
+            const radius = config.baseRadius + radiusNoise;
+
+            const x = Math.cos(theta) * radius + Math.sin(t * 0.95 + config.phase) * config.driftX;
+            const y = Math.sin(theta * config.tilt) * radius * 0.72 + Math.cos(t * 0.82 + config.depthShift) * config.driftY;
+            const depth = Math.sin(theta + config.depthShift);
+            const isFront = depth > 0;
+            const scale = isFront ? 1.18 : 0.9;
+            const rotate = config.glyphSpin * depth;
+
+            config.symbol.style.setProperty('--tx', `${x}px`);
+            config.symbol.style.setProperty('--ty', `${y}px`);
+            config.symbol.style.zIndex = isFront ? '3' : '1';
+            config.symbol.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
+            config.symbol.classList.toggle('is-front', isFront);
+            config.symbol.classList.toggle('is-back', !isFront);
+        });
+
+        requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+}
+
 
 const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.hamburger');
@@ -306,6 +368,33 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
+// Premium staggered reveal for major UI blocks
+const revealTargets = document.querySelectorAll(
+    '.about .stat, .skill-category, .tool-item, .project-card, .github-card, .repo-card, .certificate-card, .contact-item, .contact-form'
+);
+
+if (revealTargets.length) {
+    revealTargets.forEach((element, index) => {
+        element.classList.add('reveal-item', `reveal-delay-${index % 4}`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.16,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealTargets.forEach((element) => revealObserver.observe(element));
+}
+
 // Contact Form Handling
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -478,25 +567,10 @@ setTimeout(typeWriter, 1000);
 
 // Floating Cards Parallax Effect
 const floatingCards = document.querySelectorAll('.floating-card');
-
-window.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-
-    floatingCards.forEach((card, index) => {
-        const speed = (index + 1) * 20;
-        const xOffset = (x - 0.5) * speed;
-        const yOffset = (y - 0.5) * speed;
-
-        card.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-    });
-});
-
-// Reset floating cards position when mouse leaves
-document.addEventListener('mouseleave', () => {
-    floatingCards.forEach(card => {
-        card.style.transform = 'translate(0, 0)';
-    });
+floatingCards.forEach((card, index) => {
+    card.style.setProperty('--mx', '0px');
+    card.style.setProperty('--my', '0px');
+    card.style.animationDelay = `${index * 0.35}s`;
 });
 
 // Lazy Loading for Images
