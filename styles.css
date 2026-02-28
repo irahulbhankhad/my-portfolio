@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* ---------- Theme Variables ---------- */
 :root {
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
@@ -8,49 +8,191 @@
     --light-color: #f8fafc;
     --gray-color: #64748b;
     --white: #ffffff;
+    --surface-color: #ffffff;
+    --card-color: #ffffff;
+    --border-color: #dbe4f2;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --hero-start: #f8fafc;
+    --hero-end: #e2e8f0;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
 
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    --primary-color: #1b3a6e;
+    --primary-dark: #12284b;
+    --secondary-color: #244f92;
+    --accent-color: #3a6bb4;
+    --dark-color: #e2e8f0;
+    --light-color: #081126;
+    --gray-color: #9fb0c9;
+    --surface-color: #0b1730;
+    --card-color: #10213f;
+    --border-color: #1f3a66;
+    --navbar-bg: rgba(4, 10, 24, 0.92);
+    --hero-start: #050d20;
+    --hero-end: #10274a;
+    --shadow: 0 14px 32px rgba(2, 8, 23, 0.55);
+    background-color: #040b1c;
+}
+
+/* ---------- Torch Toggle ---------- */
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    margin-left: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1d4ed8, #2563eb);
+    color: #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .25s ease, color .25s ease;
+}
+
+.theme-toggle i {
+    transition: transform .2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.theme-toggle.torch-on {
+    background: linear-gradient(145deg, #f59e0b, #f97316);
+    color: #fff7d6;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25), 0 0 28px rgba(245, 158, 11, 0.45);
+}
+
+.theme-toggle.torch-on i {
+    transform: rotate(-10deg) scale(1.08);
+}
+
+body.dark-theme .navbar {
+    background: var(--navbar-bg);
+}
+
+body.dark-theme .hero {
+    background: linear-gradient(135deg, var(--hero-start) 0%, var(--hero-end) 100%);
+}
+
+body.dark-theme .about,
+body.dark-theme .skills,
+body.dark-theme .projects,
+body.dark-theme .github-section,
+body.dark-theme .contact {
+    background: var(--surface-color);
+}
+
+body.dark-theme .project-card,
+body.dark-theme .skill-category,
+body.dark-theme .github-card,
+body.dark-theme .repo-card,
+body.dark-theme .contact-form,
+body.dark-theme .stat,
+body.dark-theme .tool-item,
+body.dark-theme .social-icon,
+body.dark-theme .contact-social a,
+body.dark-theme .project-link,
+body.dark-theme .github-link,
+body.dark-theme .filter-btn,
+body.dark-theme .calendar-grid,
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea,
+body.dark-theme .certificate-card {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+}
+
+body.dark-theme .project-info {
+    background: var(--card-color);
+}
+
+body.dark-theme .calendar-grid text {
+    fill: #9fb0c9;
+}
+
+body.dark-theme .certificate-card p {
+    color: #e2e8f0;
+}
+
+body.dark-theme .footer {
+    background: #020917;
+}
+
+body.dark-theme .floating-card {
+    background: linear-gradient(135deg, #0f2347 0%, #12284b 100%);
+    border: 1px solid #2a4a78;
+    box-shadow: 0 14px 34px rgba(1, 7, 20, 0.6);
+}
+
+body.dark-theme .floating-card span {
+    color: #ffffff;
+}
+
+body.dark-theme .floating-card i {
+    color: #fbbf24;
+}
+
+body.dark-theme .floating-card .skill-icon {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(44%) saturate(1061%) hue-rotate(336deg) brightness(100%) contrast(97%);
+}
+
+@media (max-width: 768px) {
+    body.dark-theme .nav-links {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+    }
+}
+
 .project-card {
-  background: #fff;
-  border-radius: 24px;
-  overflow: hidden; /* keeps image only in top section */
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    /* keeps image only in top section */
 }
 
 .project-image {
-  position: relative;
-  height: 230px; /* blue/image area height */
+    position: relative;
+    height: 230px;
+    /* blue/image area height */
 }
 
 .project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .project-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  transition: opacity 0.25s ease;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .project-card:hover .project-overlay {
-  opacity: 1;
+    opacity: 1;
 }
 
 .project-info {
-  background: #fff;
-  padding: 28px;
-  position: relative;
-  z-index: 1;
+    background: #fff;
+    padding: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Reset & Base Styles */
