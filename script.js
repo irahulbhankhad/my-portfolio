@@ -1,4 +1,36 @@
 // DOM Elements
+const themeToggle = document.getElementById('themeToggle');
+const torchIcon = themeToggle ? themeToggle.querySelector('i') : null;
+const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+applyTheme(savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const next = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+        localStorage.setItem('portfolio-theme', next);
+        applyTheme(next);
+    });
+}
+
+function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('dark-theme', isDark);
+
+    if (!themeToggle) {
+        return;
+    }
+
+    themeToggle.classList.toggle('torch-on', isDark);
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Turn torch off' : 'Turn torch on');
+
+    if (torchIcon) {
+        torchIcon.classList.toggle('fa-fire-flame-curved', !isDark);
+        torchIcon.classList.toggle('fa-fire', isDark);
+    }
+}
+
+
 const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
