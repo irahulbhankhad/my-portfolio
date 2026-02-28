@@ -1,50 +1,56 @@
 /* CSS Variables */
-/* Theme tokens: default dark (OFF), light when body.light-theme (ON) */
 :root {
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
     --secondary-color: #3b82f6;
     --accent-color: #60a5fa;
-
-    --dark-color: #e5e7eb;     /* text on dark */
-    --light-color: #0f172a;    /* section bg dark */
-    --white: #111827;          /* cards/surfaces dark */
-    --gray-color: #94a3b8;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --dark-color: #1e293b;
+    --light-color: #f8fafc;
+    --gray-color: #64748b;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
 
-body.light-theme {
-    --dark-color: #1e293b;     /* text on light */
-    --light-color: #f8fafc;    /* section bg light */
-    --white: #ffffff;          /* cards/surfaces light */
-    --gray-color: #64748b;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.project-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden; /* keeps image only in top section */
 }
 
-.theme-toggle {
-    width: 42px;
-    height: 42px;
-    margin-left: 12px;
-    border: none;
-    border-radius: 50%;
-    background: var(--primary-color);
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: var(--transition);
+.project-image {
+  position: relative;
+  height: 230px; /* blue/image area height */
 }
-.theme-toggle:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-@media (max-width: 768px) {
-    .navbar .container {
-        gap: 10px;
-    }
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-info {
+  background: #fff;
+  padding: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Reset & Base Styles */
@@ -1139,6 +1145,17 @@ ul {
     object-fit: cover;
 }
 
+.view-pdf {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #2563EB;
+    color: #fff;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
 /* ===== Certificates Section (Tight Layout + Animations) ===== */
 
 .certificates-section {
@@ -1369,62 +1386,3 @@ ul {
 .calendar-grid:hover {
     animation: pulse 1.2s ease-in-out infinite;
 }
-/* Dark mode (when body does NOT have .light-theme) */
-body:not(.light-theme) {
-  background: #020617;
-  color: #f8fafc;
-  --dark-color: #f8fafc;   /* headings */
-  --gray-color: #cbd5e1;   /* paragraph text */
-  --light-color: #0b1220;  /* section bg */
-}
-
-body:not(.light-theme) .navbar {
-  background: rgba(2, 6, 23, 0.92);
-}
-
-body:not(.light-theme) .hero {
-  background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
-}
-
-
-body:not(.light-theme) .about,
-body:not(.light-theme) .projects,
-body:not(.light-theme) .contact,
-body:not(.light-theme) .github-section,
-body:not(.light-theme) .skills {
-  background: #0b1220;
-}
-
-body:not(.light-theme) .project-card,
-body:not(.light-theme) .skill-category,
-body:not(.light-theme) .github-card,
-body:not(.light-theme) .repo-card,
-body:not(.light-theme) .contact-form,
-body:not(.light-theme) .stat,
-body:not(.light-theme) .tool-item {
-  background: #111827;
-}
-
-body:not(.light-theme) .name,
-body:not(.light-theme) .title,
-body:not(.light-theme) .tagline,
-body:not(.light-theme) .nav-links a,
-body:not(.light-theme) .project-info h3,
-body:not(.light-theme) .project-info p {
-  color: #f8fafc;
-}
-
-body:not(.light-theme) .btn-primary {
-  color: #ffffff; /* keeps button text visible */
-}
-
-body:not(.light-theme) .btn-secondary {
-  color: #93c5fd;
-  border-color: #3b82f6;
-}
-
-body:not(.light-theme) .logo span {
-  color: #f8fafc;
-}
-
-
