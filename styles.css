@@ -12,6 +12,19 @@
     --transition: all 0.3s ease;
 }
 
+.project-image {
+  position: relative;
+  height: 220px;      /* adjust as needed */
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
