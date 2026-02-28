@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Bhankhad - Data Analytics Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/profile.jpg" alt="Profile" class="nav-profile-image"
+                    data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg">
+                Rahul's <span> Portfolio </span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Turn torch on" aria-pressed="false">
+                <i class="fas fa-fire-flame-curved"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="greeting">Hello, I'm</span>
+                <h1 class="name" data-text="Rahul Bhankhad">Rahul Bhankhad</h1>
+                <h2 class="title">Data Analyst</h2>
+                <p class="tagline">Transforming raw data into actionable insights through advanced analytics and
+                    visualization</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/rahul-bhankhad45/" class="social-icon"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/irahulbhankhad" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/rahulbhankhad" class="social-icon"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://www.instagram.com/irahulbhankhad?igsh=a2FtcjdzeWtmODBz&utm_source=qr"
+                        class="social-icon"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-image-container">
+                    <div class="orbit orbit-outer" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 0deg;">+</span>
+                        <span class="orbit-symbol" style="--angle: 60deg;">-</span>
+                        <span class="orbit-symbol" style="--angle: 120deg;">x</span>
+                        <span class="orbit-symbol" style="--angle: 180deg;">/</span>
+                        <span class="orbit-symbol" style="--angle: 240deg;">%</span>
+                        <span class="orbit-symbol" style="--angle: 300deg;">Σ</span>
+                    </div>
+                    <div class="orbit orbit-mid" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 30deg;">μ</span>
+                        <span class="orbit-symbol" style="--angle: 90deg;">π</span>
+                        <span class="orbit-symbol" style="--angle: 150deg;">∑</span>
+                        <span class="orbit-symbol" style="--angle: 210deg;">±</span>
+                        <span class="orbit-symbol" style="--angle: 270deg;">%</span>
+                        <span class="orbit-symbol" style="--angle: 330deg;">÷</span>
+                    </div>
+                    <div class="orbit orbit-inner" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 45deg;">+</span>
+                        <span class="orbit-symbol" style="--angle: 135deg;">-</span>
+                        <span class="orbit-symbol" style="--angle: 225deg;">x̄</span>
+                        <span class="orbit-symbol" style="--angle: 315deg;">σ</span>
+                    </div>
+                    <!-- YOUR PROFILE PICTURE GOES HERE -->
+                    <img src="images/profile.jpg" alt="Rahul Bhankhad" class="profile-image"
+                        data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg">
+                    <!-- OR use this if you don't have images folder -->
+                    <!-- <img src="https://your-image-url.com/profile.jpg" alt="Rahul Bhankhad" class="profile-image"> -->
+                </div>
+                <div class="image-container">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Data Visualization</span>
+                    </div>
+                    <div class="floating-card card-5">
+                        <img src="assets/icons/data-viz-blue.svg" alt="Data Visualization" class="skill-icon">
+                        <span>Power BI</span>
+                    </div>
+
+                    <div class="floating-card card-2">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL </span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <img src="assets/icons/tableau-blue.svg" alt="Tableau" class="skill-icon">
+                        <span>Tableau</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <img src="assets/icons/brand-python.svg" alt="Python" class="skill-icon">
+                        <span>Python</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an aspiring Data Analyst who focuses on turning raw data into clear, actionable insights for
+                        real-world business problems.</p>
+
+                    <p>I hold an M.Sc in Mathematics from IIT Jodhpur and a B.Sc in Computer Science from Kurukshetra
+                        University, which gives me a strong foundation in logic, problem-solving, and analytical
+                        thinking.</p>
+
+                    <p>I work primarily with SQL, Python, Excel, and Tableau, and I enjoy building clean dashboards and
+                        writing efficient queries to support data-driven decisions.</p>
+                    <p>I approach data analytics with a problem-solving mindset — I try, fail, debug, and improve. This
+                        hands-on process has helped me develop strong query logic, dashboard design skills, and the
+                        ability to translate numbers into meaningful stories.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Growing</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Fresher</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="about-card">
+                            <!-- YOUR PROFILE PICTURE -->
+                            <img src="images/profile.jpg" alt="Rahul Bhankhad" class="about-profile-image"
+                                data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg">
+                            <h3>Education</h3>
+                            <p>M.Sc in Mathematics</p>
+                            <span>Specialization in Pure & Applied Mathematics</span>
+                            <p>B.Sc in Computer Science</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 30%"></div>
+                            </div>
+                            <span class="skill-percentage">30%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Numpy</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 15%"></div>
+                            </div>
+                            <span class="skill-percentage">15%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-pie"></i> Data Visualization</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Tableau</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Power BI</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Matplotlib</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 10%"></div>
+                            </div>
+                            <span class="skill-percentage">10%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Scikit-learn</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 10%"></div>
+                            </div>
+                            <span class="skill-percentage">10%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TensorFlow</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                            <span class="skill-percentage">0%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Pandas</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 92%"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-google"></i>
+                            <span>Google Cloud</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-table"></i>
+                            <span>Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="certificates-grid">
+                <!-- Certificate 1 -->
+                <div class="certificate-card">
+                    <a href="assets/docs/certifications/rahul-data-viz-excel-uniathena.pdf" target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Open Essentials of Data Visualization using MS Excel certificate (PDF)">
+
+
+
+                        <p>Essentials of Data Visualization using MS Excel — UniAthena X Acacia University (Feb 2026)
+                        </p>
+
+                        <a href="assets/docs/certifications/rahul-data-viz-excel-uniathena.pdf" target="_blank"
+                            class="view-pdf">
+                            View (PDF)
+                        </a>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+                    <a href="assets/docs/certifications/Data Analyst-Professional.pdf" target="_blank"
+                        rel="noopener noreferrer" aria-label="Open Data Analyst Professional certificate (Udemy)">
+
+                        <p>Data Analyst: Professional Certificate in Data Analysis — Udemy (Feb 2026)
+                        </p>
+
+                        <a href="assets/docs/certifications/Data Analyst-Professional.pdf" target="_blank"
+                            class="view-pdf">
+                            View (PDF)
+                        </a>
+                </div>
+                <!-- Certificate 3  -->
+                <div class="certificate-card">
+                    <a href="assets/docs/certifications/sql_advanced_certificate.pdf" target="_blank"
+                        rel="noopener noreferrer" aria-label="Open SQL Advanced certificate (HackerRank)">
+
+                        <p>SQL (Advanced) — HackerRank Skill Certification (Feb 2026)</p>
+
+                        <a href="assets/docs/certifications/sql_advanced_certificate.pdf" target="_blank"
+                            class="view-pdf">
+                            View (PDF)
+                        </a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-card">
+                <div class="resume-content">
+                    <h3>Download My Resume</h3>
+                    <p>Open a dedicated page to view and download my resume in PDF or DOCX format.</p>
+                </div>
+                <a href="resume.html" class="btn btn-primary">
+                    <i class="fas fa-hand-point-right resume-hand-icon"></i>
+                    Open Resume Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="sql">SQL</button>
+                <button class="filter-btn" data-filter="visualization">Visualization</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sales Prediction Model</h3>
+                        <p>Machine learning model to predict future sales using historical data and various features.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Pandas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="sql">
+                    <div class="project-image">
+                        <img src="images/zomato_insights.png" alt="Zomato Marketplace Insights">
+                        <div class="project-overlay">
+                            <a href="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL/blob/main/README.md"
+                                class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL"
+                                class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Zomato Marketplace Insights & Performance Analysis</h3>
+                        <p>Comprehensive SQL-driven marketplace analysis of Zomato restaurant data, uncovering
+                            performance segmentation, digital adoption gaps, risk exposure, and strategic growth
+                            opportunities.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>MySQL</span>
+                            <span>Database Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="visualization">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>COVID-19 Dashboard</h3>
+                        <p>Interactive dashboard tracking COVID-19 trends and vaccination progress worldwide.</p>
+                        <div class="project-tags">
+                            <span>Tableau</span>
+                            <span>Data Visualization</span>
+                            <span>Dashboard Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Customer Segmentation</h3>
+                        <p>K-means clustering algorithm to segment customers based on purchasing behavior.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Clustering</span>
+                            <span>Unsupervised Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="sql">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Financial Data Analysis</h3>
+                        <p>In-depth analysis of financial data to identify trends and anomalies using advanced SQL
+                            queries.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Financial Analysis</span>
+                            <span>Data Cleaning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="visualization">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>HR Analytics Dashboard</h3>
+                        <p>Power BI dashboard analyzing employee performance, retention, and recruitment metrics.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span>
+                            <span>HR Analytics</span>
+                            <span>Dax</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="github-section" data-github-username="irahulbhankhad">
+        <div class="container">
+            <h2 class="section-title">GitHub Contributions</h2>
+            <div class="github-stats">
+                <div class="github-card">
+                    <i class="fab fa-github"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubRepos">2+</span>
+                        <span class="github-label">Repositories</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubContributions">60+</span>
+                        <span class="github-label">Contributions</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-star"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubStars">2+</span>
+                        <span class="github-label">Total Stars</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-code"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubLines">2K+</span>
+                        <span class="github-label">Lines of Code</span>
+                    </div>
+                </div>
+            </div>
+            <div class="github-calendar">
+                <h2 class="section-title">GitHub Activity</h2>
+                <div class="github-activity-layout">
+                    <div class="calendar-grid"></div>
+                    <aside class="activity-chart-panel">
+                        <h3>Activity Trend (Last 90 Days)</h3>
+                        <div class="activity-chart-wrap">
+                            <canvas id="githubActivityChart" aria-label="GitHub activity trend line chart"
+                                role="img"></canvas>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <div class="github-showcase">
+                <h3>Top Repositories</h3>
+                <div class="repo-grid" id="topReposGrid" aria-live="polite">
+                    <div class="repo-card">
+                        <h4><i class="fas fa-book"></i> Loading repositories...</h4>
+                        <p>Fetching your latest top repositories from GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        vision.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>irahulbhankhad@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8168414405</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Karnal , Haryana</span>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://www.linkedin.com/in/rahul-bhankhad45/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/irahulbhankhad"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/irahulbhankhad?igsh=a2FtcjdzeWtmODBz&utm_source=qr"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/irahulbhankhad@gmail.com"
+                    method="POST">
+                    <!-- Hidden config fields (must be inside form) -->
+                    <input type="hidden" name="_subject" value="New message from Portfolio Website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <img src="images/profile.jpg" alt="Profile" class="nav-profile-image"
+                            data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg">
+                        Rahul Bhankhad<span></span>
+                    </a>
+                </div>
+                <p class="footer-text">Data Analyst | Transforming Data into Insights</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/rahul-bhankhad45/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/irahulbhankhad"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/rahulbhankhad"><i class="fab fa-kaggle"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rahul Bhankhad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
