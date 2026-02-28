@@ -382,6 +382,22 @@ body.dark-theme .github-calendar .calendar-grid:hover {
     animation: none;
 }
 
+/* Dark-theme About stats: keep gold accent always (not hover-only) */
+body.dark-theme .about .stat {
+    border-color: rgba(251, 191, 36, 0.28);
+    box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.14), var(--shadow);
+}
+
+body.dark-theme .about .stat-number {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(251, 191, 36, 0.34);
+}
+
+/* Dark-theme About education card: gold accent only on navy background */
+body.dark-theme .about .about-card {
+    background: #fbbf24;
+}
+
 @media (max-width: 768px) {
     body.dark-theme .nav-links {
         background: var(--card-color);
