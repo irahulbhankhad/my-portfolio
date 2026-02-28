@@ -12,6 +12,30 @@
     --transition: all 0.3s ease;
 }
 
+/* Theme tokens: default dark (OFF), light when body.light-theme (ON) */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
+
+    --dark-color: #e5e7eb;     /* text on dark */
+    --light-color: #0f172a;    /* section bg dark */
+    --white: #111827;          /* cards/surfaces dark */
+    --gray-color: #94a3b8;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --transition: all 0.3s ease;
+}
+
+body.light-theme {
+    --dark-color: #1e293b;     /* text on light */
+    --light-color: #f8fafc;    /* section bg light */
+    --white: #ffffff;          /* cards/surfaces light */
+    --gray-color: #64748b;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
 .project-card {
   background: #fff;
   border-radius: 24px;
