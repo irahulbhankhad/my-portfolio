@@ -1,6 +1,7 @@
 // DOM Elements
 const themeToggle = document.getElementById('themeToggle');
 const torchIcon = themeToggle ? themeToggle.querySelector('i') : null;
+const themeProfileImages = document.querySelectorAll('img[data-light-src][data-dark-src]');
 const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
 applyTheme(savedTheme);
 
@@ -15,6 +16,7 @@ if (themeToggle) {
 function applyTheme(theme) {
     const isDark = theme === 'dark';
     document.body.classList.toggle('dark-theme', isDark);
+    updateThemeProfileImages(isDark);
 
     if (!themeToggle) {
         return;
@@ -28,6 +30,15 @@ function applyTheme(theme) {
         torchIcon.classList.toggle('fa-fire-flame-curved', !isDark);
         torchIcon.classList.toggle('fa-fire', isDark);
     }
+}
+
+function updateThemeProfileImages(isDark) {
+    themeProfileImages.forEach((img) => {
+        const nextSrc = isDark ? img.dataset.darkSrc : img.dataset.lightSrc;
+        if (nextSrc && img.getAttribute('src') !== nextSrc) {
+            img.setAttribute('src', nextSrc);
+        }
+    });
 }
 
 
