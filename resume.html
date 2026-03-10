@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Download - Rahul Bhankhad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="resume-page">
+    <main class="resume-page-main">
+        <section class="resume-download-card">
+            <h1>Resume</h1>
+            <p>Choose your preferred format and download my latest resume.</p>
+
+            <div class="resume-download-actions">
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </a>
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.docx" class="btn btn-secondary" download>
+                    <i class="fas fa-file-word"></i> Download DOCX
+                </a>
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.pdf" class="btn btn-secondary" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fas fa-eye"></i> Preview PDF
+                </a>
+            </div>
+
+            <a href="index.html#resume" class="resume-back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </section>
+    </main>
+
+    <script>
+        (function syncTheme() {
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+            document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+        })();
+    </script>
+</body>
+
+</html>
