@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Bhankhad - Data Analytics Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+</head>
+
+<body>
+    <div class="cursor-spotlight" id="cursorSpotlight" aria-hidden="true"></div>
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="loader-inner">
+            <div class="loader-rings">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p class="loader-text">Rahul's Portfolio</p>
+        </div>
+    </div>
+    <canvas id="fxCanvas" class="fx-canvas" aria-hidden="true"></canvas>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/profile.jpg" alt="Profile" class="nav-profile-image"
+                    data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg" loading="eager"
+                    decoding="async" fetchpriority="high">
+                Rahul's <span> Portfolio </span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Turn torch on" aria-pressed="false">
+                <i class="fas fa-fire-flame-curved"></i>
+            </button>
+            <div class="hamburger" role="button" aria-label="Toggle navigation menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-webgl-layer" aria-hidden="true">
+            <canvas id="heroWebglCanvas" class="hero-webgl-canvas"></canvas>
+            <div class="hero-gradient-mesh"></div>
+        </div>
+        <div class="hero-cinematic-layer" aria-hidden="true">
+            <div class="hero-data-grid"></div>
+            <div class="hero-data-bars">
+                <span style="--bar-height: 26%; --bar-delay: 0s;"></span>
+                <span style="--bar-height: 44%; --bar-delay: 0.12s;"></span>
+                <span style="--bar-height: 32%; --bar-delay: 0.24s;"></span>
+                <span style="--bar-height: 64%; --bar-delay: 0.36s;"></span>
+                <span style="--bar-height: 50%; --bar-delay: 0.48s;"></span>
+                <span style="--bar-height: 72%; --bar-delay: 0.6s;"></span>
+            </div>
+            <svg class="hero-line-graph" viewBox="0 0 620 240" fill="none" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <linearGradient id="heroLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#60a5fa" />
+                        <stop offset="50%" stop-color="#22d3ee" />
+                        <stop offset="100%" stop-color="#fbbf24" />
+                    </linearGradient>
+                </defs>
+                <polyline points="24,194 104,154 178,168 252,118 326,134 404,86 482,116 596,56" />
+                <circle cx="104" cy="154" r="5"></circle>
+                <circle cx="252" cy="118" r="5"></circle>
+                <circle cx="404" cy="86" r="5"></circle>
+                <circle cx="596" cy="56" r="6"></circle>
+            </svg>
+            <div class="hero-network-nodes">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="greeting">Hello, I'm</span>
+                <div class="hero-name-wrap">
+                    <h1 class="name" data-text="Rahul Bhankhad">Rahul Bhankhad</h1>
+                    <span class="hero-orbit hero-orbit-1" aria-hidden="true"><span class="hero-bee"></span></span>
+                    <span class="hero-orbit hero-orbit-2" aria-hidden="true"><span class="hero-bee"></span></span>
+                    <span class="hero-orbit hero-orbit-3" aria-hidden="true"><span class="hero-bee"></span></span>
+                </div>
+                <h2 class="hero-headline" id="heroHeadline" data-text="I Turn Data Into Decisions"
+                    aria-label="I Turn Data Into Decisions">I Turn Data Into Decisions</h2>
+                <h2 class="title role-typing"
+                    data-roles="Data Analyst|SQL Specialist|Dashboard Designer|Machine Learning Enthusiast">Data
+                    Analyst</h2>
+                <p class="tagline">Transforming raw data into actionable insights through advanced analytics and
+                    visualization</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/rahul-bhankhad45/" class="social-icon"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/irahulbhankhad" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/rahulbhankhad" class="social-icon"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://wa.me/918168414405" class="social-icon" aria-label="Message on WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/irahulbhankhad?igsh=a2FtcjdzeWtmODBz&amp;utm_source=qr"
+                        class="social-icon"><i class="fab fa-medium"></i></a>
+
+                </div>
+                <a href="#about" class="hero-scroll-indicator" aria-label="Scroll to About section">
+                    <span>Scroll</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="profile-image-container">
+                    <div class="orbit orbit-outer" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 0deg;">+</span>
+                        <span class="orbit-symbol" style="--angle: 60deg;">-</span>
+                        <span class="orbit-symbol" style="--angle: 120deg;">x</span>
+                        <span class="orbit-symbol" style="--angle: 180deg;">/</span>
+                        <span class="orbit-symbol" style="--angle: 240deg;">%</span>
+                        <span class="orbit-symbol" style="--angle: 300deg;">Σ</span>
+                    </div>
+                    <div class="orbit orbit-mid" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 30deg;">μ</span>
+                        <span class="orbit-symbol" style="--angle: 90deg;">π</span>
+                        <span class="orbit-symbol" style="--angle: 150deg;">∑</span>
+                        <span class="orbit-symbol" style="--angle: 210deg;">±</span>
+                        <span class="orbit-symbol" style="--angle: 270deg;">%</span>
+                        <span class="orbit-symbol" style="--angle: 330deg;">÷</span>
+                    </div>
+                    <div class="orbit orbit-inner" aria-hidden="true">
+                        <span class="orbit-symbol" style="--angle: 45deg;">+</span>
+                        <span class="orbit-symbol" style="--angle: 135deg;">-</span>
+                        <span class="orbit-symbol" style="--angle: 225deg;">x̄</span>
+                        <span class="orbit-symbol" style="--angle: 315deg;">σ</span>
+                    </div>
+                    <!-- YOUR PROFILE PICTURE GOES HERE -->
+                    <img src="images/profile.jpg" alt="Rahul Bhankhad" class="profile-image"
+                        data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg" loading="eager"
+                        decoding="async" fetchpriority="high">
+                    <!-- OR use this if you don't have images folder -->
+                    <!-- <img src="https://your-image-url.com/profile.jpg" alt="Rahul Bhankhad" class="profile-image"> -->
+                </div>
+                <div class="image-container">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Data Visualization</span>
+                    </div>
+                    <div class="floating-card card-5">
+                        <img src="assets/icons/data-viz-blue.svg" alt="Data Visualization" class="skill-icon"
+                            loading="eager" decoding="async">
+                        <span>Power BI</span>
+                    </div>
+
+                    <div class="floating-card card-2">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL </span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <img src="assets/icons/tableau-blue.svg" alt="Tableau" class="skill-icon" loading="eager"
+                            decoding="async">
+                        <span>Tableau</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <img src="assets/icons/brand-python.svg" alt="Python" class="skill-icon" loading="eager"
+                            decoding="async">
+                        <span>Python</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Marquee Section -->
+    <section class="tech-marquee-section">
+        <div class="tech-marquee-container">
+            <div class="tech-marquee">
+                <!-- Duplicate groups to create seamless infinite scroll loop -->
+                <div class="tech-marquee-group">
+                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-item"><i class="fas fa-table"></i> Pandas</span>
+                    <span class="tech-item"><i class="fas fa-database"></i> SQL</span>
+                    <span class="tech-item"><i class="fas fa-chart-column"></i> Power BI</span>
+                    <span class="tech-item"><i class="fas fa-chart-pie"></i> Data Visualization</span>
+                    <span class="tech-item"><i class="fas fa-file-excel"></i> Excel</span>
+                    <span class="tech-item"><i class="fab fa-git-alt"></i> Git</span>
+                </div>
+                <div class="tech-marquee-group" aria-hidden="true">
+                    <span class="tech-item"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-item"><i class="fas fa-table"></i> Pandas</span>
+                    <span class="tech-item"><i class="fas fa-database"></i> SQL</span>
+                    <span class="tech-item"><i class="fas fa-chart-column"></i> Power BI</span>
+                    <span class="tech-item"><i class="fas fa-chart-pie"></i> Data Visualization</span>
+                    <span class="tech-item"><i class="fas fa-file-excel"></i> Excel</span>
+                    <span class="tech-item"><i class="fab fa-git-alt"></i> Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an aspiring Data Analyst who focuses on turning raw data into clear, actionable insights for
+                        real-world business problems.</p>
+
+                    <p>I hold an M.Sc in Mathematics from IIT Jodhpur and a B.Sc in Computer Science from Kurukshetra
+                        University, which gives me a strong foundation in logic, problem-solving, and analytical
+                        thinking.</p>
+
+                    <p>I work primarily with SQL, Python, Excel, and Tableau, and I enjoy building clean dashboards and
+                        writing efficient queries to support data-driven decisions.</p>
+                    <p>I approach data analytics with a problem-solving mindset — I try, fail, debug, and improve. This
+                        hands-on process has helped me develop strong query logic, dashboard design skills, and the
+                        ability to translate numbers into meaningful stories.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Growing</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Fresher</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="about-card">
+                            <!-- YOUR PROFILE PICTURE -->
+                            <img src="images/profile.jpg" alt="Rahul Bhankhad" class="about-profile-image"
+                                data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg" loading="lazy"
+                                decoding="async">
+                            <h3>Education</h3>
+                            <p>M.Sc in Mathematics</p>
+                            <span>Specialization in Pure & Applied Mathematics</span>
+                            <p>B.Sc in Computer Science</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">Technical Skills</h2>
+            <div class="skills-premium-grid">
+                <article class="skill-premium-card" data-level="advanced">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fab fa-python"></i></span>
+                        <span class="skill-level-pill">Advanced</span>
+                    </div>
+                    <h3>Python</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="88"></span></div>
+                    <div class="skill-tag-row"><span>Automation</span><span>EDA</span><span>Analytics</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="intermediate">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fas fa-cubes"></i></span>
+                        <span class="skill-level-pill">Intermediate</span>
+                    </div>
+                    <h3>NumPy</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="72"></span></div>
+                    <div class="skill-tag-row"><span>Array Ops</span><span>Math</span><span>Speed</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="advanced">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fas fa-table"></i></span>
+                        <span class="skill-level-pill">Advanced</span>
+                    </div>
+                    <h3>Pandas</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="86"></span></div>
+                    <div class="skill-tag-row"><span>Cleaning</span><span>Wrangling</span><span>Reporting</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="advanced">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fas fa-database"></i></span>
+                        <span class="skill-level-pill">Advanced</span>
+                    </div>
+                    <h3>SQL</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="92"></span></div>
+                    <div class="skill-tag-row"><span>Joins</span><span>CTEs</span><span>Optimization</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="advanced">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fas fa-chart-column"></i></span>
+                        <span class="skill-level-pill">Advanced</span>
+                    </div>
+                    <h3>Power BI</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="80"></span></div>
+                    <div class="skill-tag-row"><span>DAX</span><span>Storytelling</span><span>KPI</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="advanced">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fas fa-file-excel"></i></span>
+                        <span class="skill-level-pill">Advanced</span>
+                    </div>
+                    <h3>Excel</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="85"></span></div>
+                    <div class="skill-tag-row"><span>Pivots</span><span>Dashboards</span><span>Models</span></div>
+                </article>
+                <article class="skill-premium-card" data-level="beginner">
+                    <div class="skill-premium-head">
+                        <span class="skill-premium-icon"><i class="fab fa-git-alt"></i></span>
+                        <span class="skill-level-pill">Beginner</span>
+                    </div>
+                    <h3>Git</h3>
+                    <div class="skill-progress-track"><span class="skill-progress-fill" data-progress="64"></span></div>
+                    <div class="skill-tag-row"><span>Branching</span><span>PRs</span><span>Versioning</span></div>
+                </article>
+            </div>
+
+            <!-- Currently Learning -->
+            <div class="learning-section reveal-section mt-5">
+                <h3 class="reveal-item delay-1"><i class="fas fa-graduation-cap"></i> Currently Learning</h3>
+                <div class="learning-grid reveal-item delay-2">
+                    <div class="learning-card">
+                        <i class="fas fa-database learning-icon"></i>
+                        <span>Advanced SQL for Data Analytics</span>
+                    </div>
+                    <div class="learning-card">
+                        <i class="fas fa-cogs learning-icon"></i>
+                        <span>Feature Engineering</span>
+                    </div>
+                    <div class="learning-card">
+                        <i class="fas fa-chart-line learning-icon"></i>
+                        <span>Dashboard Storytelling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">Certificates</h2>
+
+            <div class="certificates-grid reveal-item delay-2">
+                <!-- Certificate 1 -->
+                <div class="certificate-card">
+                    <p>Essentials of Data Visualization using MS Excel — UniAthena X Acacia University (Feb 2026)
+                    </p>
+                    <a href="assets/docs/certifications/rahul-data-viz-excel-uniathena.pdf" target="_blank"
+                        rel="noopener noreferrer" class="view-pdf"
+                        aria-label="Open Essentials of Data Visualization using MS Excel certificate (PDF)">
+                        View (PDF)
+                    </a>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+                    <p>Data Analyst: Professional Certificate in Data Analysis — Udemy (Feb 2026)
+                    </p>
+                    <a href="assets/docs/certifications/Data Analyst-Professional.pdf" target="_blank"
+                        rel="noopener noreferrer" class="view-pdf"
+                        aria-label="Open Data Analyst Professional certificate (Udemy)">
+                        View (PDF)
+                    </a>
+                </div>
+                <!-- Certificate 3  -->
+                <div class="certificate-card">
+                    <p>SQL (Advanced) — HackerRank Skill Certification (Feb 2026)</p>
+                    <a href="assets/docs/certifications/sql_advanced_certificate.pdf" target="_blank"
+                        rel="noopener noreferrer" class="view-pdf"
+                        aria-label="Open SQL Advanced certificate (HackerRank)">
+                        View (PDF)
+                    </a>
+                </div>
+                <!-- Certificate 4  -->
+                <div class="certificate-card">
+                    <p>NumPy Programming Mastery: Learn Python for Data Analysis</p>
+                    <a href="assets/docs/certifications/Udemy_numpy.pdf" target="_blank" rel="noopener noreferrer"
+                        class="view-pdf" aria-label="Open NumPy Programming Mastery certificate">
+                        View (PDF)
+                    </a>
+                </div>
+                <!-- Certificate 5  -->
+                <div class="certificate-card">
+                    <p>Complete MySQL Bootcamp:Learn SQL Step by Step</p>
+                    <a href="assets/docs/certifications/Udemy_sql.pdf" target="_blank" rel="noopener noreferrer"
+                        class="view-pdf" aria-label="Open Complete MySQL Bootcamp certificate">
+                        View (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-card">
+                <div class="resume-content">
+                    <h3>Download My Resume</h3>
+                    <p>Open a dedicated page to view and download my resume in PDF or DOCX format.</p>
+                </div>
+                <a href="resume.html" class="btn btn-primary">
+                    <i class="fas fa-hand-point-right resume-hand-icon"></i>
+                    Open Resume Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">Featured Projects</h2>
+            <div class="projects-filter reveal-item delay-2">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="sql">SQL</button>
+                <button class="filter-btn" data-filter="visualization">Visualization</button>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card" data-category="python" data-title="Sales Prediction Model"
+                    data-preview-image="images/profile.jpg" data-tools="Python, Pandas, Scikit-learn, Matplotlib"
+                    data-insights="Identified seasonal demand spikes and improved forecast reliability for monthly planning decisions."
+                    data-dataset="Historical retail sales records with product categories, region, campaign, and seasonal features."
+                    data-live-url="#" data-github-url="#">
+                    <div class="project-image">
+                        <img src="images/profile.jpg" alt="Sales Prediction Model preview" loading="lazy"
+                            decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>ML</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sales Prediction Model</h3>
+                        <p>Machine learning model to predict future sales using historical data and business context.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Pandas</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-category="sql" data-title="Zomato Marketplace Insights"
+                    data-preview-image="images/zomato_insights.png" data-tools="SQL, MySQL, Excel"
+                    data-insights="Mapped high-performing city clusters, surfaced digital adoption gaps, and identified strategic growth opportunities."
+                    data-dataset="Restaurant marketplace dataset including ratings, delivery adoption, cuisine segments, and location performance."
+                    data-live-url="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL/blob/main/README.md"
+                    data-github-url="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL">
+                    <div class="project-image">
+                        <img src="images/zomato_insights.png" alt="Zomato Marketplace Insights" loading="lazy"
+                            decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL/blob/main/README.md"
+                                    class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="https://github.com/irahulbhankhad/Zomato-Marketplace-Insights-SQL"
+                                    class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>SQL</span>
+                                <span>MySQL</span>
+                                <span>Insights</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Zomato Marketplace Insights & Performance Analysis</h3>
+                        <p>SQL-driven marketplace analysis revealing segmentation, risk exposure, and growth potential.
+                        </p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>MySQL</span>
+                            <span>Business Analysis</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-category="visualization" data-title="COVID-19 Decision Dashboard"
+                    data-preview-image="images/profile1.jpg" data-tools="Tableau, Excel, Data Storytelling"
+                    data-insights="Highlighted outbreak trends and vaccination momentum to support timely policy and communication decisions."
+                    data-dataset="Public COVID-19 daily case, mortality, and vaccination data by country and timeline."
+                    data-live-url="#" data-github-url="#">
+                    <div class="project-image">
+                        <img src="images/profile1.jpg" alt="COVID-19 dashboard preview" loading="lazy" decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>Tableau</span>
+                                <span>Viz</span>
+                                <span>Dashboard</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>COVID-19 Dashboard</h3>
+                        <p>Interactive dashboard tracking COVID-19 trends and vaccination progress worldwide.</p>
+                        <div class="project-tags">
+                            <span>Tableau</span>
+                            <span>Data Visualization</span>
+                            <span>Dashboard Design</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-category="python" data-title="Customer Segmentation Engine"
+                    data-preview-image="images/profile.jpg" data-tools="Python, K-Means, Seaborn"
+                    data-insights="Segmented high-value and churn-risk groups to guide targeted retention and campaign planning."
+                    data-dataset="Transactional customer behavior data including frequency, monetary value, and category spend."
+                    data-live-url="#" data-github-url="#">
+                    <div class="project-image">
+                        <img src="images/profile.jpg" alt="Customer segmentation preview" loading="lazy"
+                            decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>Python</span>
+                                <span>Clustering</span>
+                                <span>EDA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Customer Segmentation</h3>
+                        <p>K-means clustering approach to segment customers based on behavior and spend patterns.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Clustering</span>
+                            <span>Unsupervised</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-category="sql" data-title="Financial SQL Health Check"
+                    data-preview-image="images/profile1.jpg" data-tools="SQL, Window Functions, Excel"
+                    data-insights="Detected anomalies in monthly revenue and highlighted margin leakage across product groups."
+                    data-dataset="Financial transaction ledger with period, account, category, and profitability fields."
+                    data-live-url="#" data-github-url="#">
+                    <div class="project-image">
+                        <img src="images/profile1.jpg" alt="Financial analysis preview" loading="lazy" decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>SQL</span>
+                                <span>Finance</span>
+                                <span>Anomaly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Financial Data Analysis</h3>
+                        <p>Advanced SQL analysis to detect trends, anomalies, and operational opportunities.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Financial Analysis</span>
+                            <span>Data Quality</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-category="visualization" data-title="HR Analytics Dashboard"
+                    data-preview-image="images/profile.jpg" data-tools="Power BI, DAX, Excel"
+                    data-insights="Exposed retention patterns, hiring funnels, and performance hotspots for talent decision-making."
+                    data-dataset="Employee master data with attrition, role, performance, tenure, and recruitment records."
+                    data-live-url="#" data-github-url="#">
+                    <div class="project-image">
+                        <img src="images/profile.jpg" alt="HR dashboard preview" loading="lazy" decoding="async">
+                        <div class="project-overlay">
+                            <div class="project-overlay-actions">
+                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <button type="button" class="project-preview-btn">Preview</button>
+                            </div>
+                            <div class="project-overlay-tags">
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>HR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>HR Analytics Dashboard</h3>
+                        <p>Power BI dashboard analyzing employee performance, retention, and recruitment metrics.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span>
+                            <span>HR Analytics</span>
+                            <span>DAX</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="impactStats" class="stats-counter-section reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">Impact In Numbers</h2>
+            <div class="stats-counter-grid reveal-item delay-2">
+                <article class="counter-card">
+                    <span class="counter-number" data-target="12" data-suffix="+">0</span>
+                    <span class="counter-label">Projects Completed</span>
+                </article>
+                <article class="counter-card">
+                    <span class="counter-number" data-target="25" data-suffix="+">0</span>
+                    <span class="counter-label">Datasets Analyzed</span>
+                </article>
+                <article class="counter-card">
+                    <span class="counter-number" data-target="18" data-suffix="+">0</span>
+                    <span class="counter-label">Dashboards Built</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="project-modal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="projectModalTitle">
+        <div class="project-modal-backdrop" data-close-modal="true"></div>
+        <div class="project-modal-panel" role="document">
+            <button type="button" class="project-modal-close" id="projectModalClose" aria-label="Close project preview">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="project-modal-media">
+                <img id="projectModalImage" src="" alt="Project preview" loading="lazy" decoding="async">
+            </div>
+            <div class="project-modal-content">
+                <h3 id="projectModalTitle">Project Title</h3>
+                <p class="project-modal-tools" id="projectModalTools">Tools</p>
+                <div class="project-modal-block">
+                    <h4>Business Insights</h4>
+                    <p id="projectModalInsights"></p>
+                </div>
+                <div class="project-modal-block">
+                    <h4>Dataset Description</h4>
+                    <p id="projectModalDataset"></p>
+                </div>
+                <div class="project-modal-actions">
+                    <a id="projectModalLive" class="btn btn-primary" href="#" target="_blank"
+                        rel="noopener noreferrer">Live Demo</a>
+                    <a id="projectModalGithub" class="btn btn-secondary" href="#" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Section -->
+    <section id="github" class="github-section reveal-section" data-github-username="irahulbhankhad">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">GitHub Contributions</h2>
+            <div class="github-stats reveal-item delay-2">
+                <div class="github-card">
+                    <i class="fab fa-github"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubRepos">2+</span>
+                        <span class="github-label">Repositories</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubContributions">60+</span>
+                        <span class="github-label">Contributions</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-star"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubStars">2+</span>
+                        <span class="github-label">Total Stars</span>
+                    </div>
+                </div>
+                <div class="github-card">
+                    <i class="fas fa-code"></i>
+                    <div class="github-info">
+                        <span class="github-number" id="githubLines">2K+</span>
+                        <span class="github-label">Lines of Code</span>
+                    </div>
+                </div>
+            </div>
+            <div class="github-calendar">
+                <h2 class="section-title">GitHub Activity</h2>
+                <div class="github-activity-layout">
+                    <div class="calendar-grid"></div>
+                    <aside class="activity-chart-panel">
+                        <h3>Activity Trend (Last 90 Days)</h3>
+                        <div class="activity-chart-wrap">
+                            <canvas id="githubActivityChart" aria-label="GitHub activity trend line chart"
+                                role="img"></canvas>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <div class="github-showcase">
+                <h3>Top Repositories</h3>
+                <div class="repo-grid" id="topReposGrid" aria-live="polite">
+                    <div class="repo-card">
+                        <h4><i class="fas fa-book"></i> Loading repositories...</h4>
+                        <p>Fetching your latest top repositories from GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal-section">
+        <div class="container">
+            <h2 class="section-title reveal-item delay-1">Get In Touch</h2>
+            <div class="contact-content reveal-item delay-2">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        vision.</p>
+                    <div class="contact-details">
+                        <a class="contact-item"
+                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=irahulbhankhad@gmail.com"
+                            target="_blank" rel="noopener noreferrer" aria-label="Compose email in Gmail">
+                            <i class="fas fa-envelope"></i>
+                            <span>irahulbhankhad@gmail.com</span>
+                        </a>
+                        <a class="contact-item" href="tel:+918168414405" aria-label="Call +91 8168414405">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8168414405</span>
+                        </a>
+                        <a class="contact-item"
+                            href="https://www.google.com/maps/search/?api=1&amp;query=Karnal%2C+Haryana" target="_blank"
+                            rel="noopener noreferrer" aria-label="Open Karnal, Haryana on Google Maps">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Karnal , Haryana</span>
+                        </a>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://www.linkedin.com/in/rahul-bhankhad45/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/irahulbhankhad"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/irahulbhankhad?igsh=a2FtcjdzeWtmODBz&amp;utm_source=qr"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/918168414405" aria-label="Message on WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/irahulbhankhad@gmail.com"
+                    method="POST">
+                    <!-- Hidden config fields (must be inside form) -->
+                    <input type="hidden" name="_subject" value="New message from Portfolio Website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave-separator" aria-hidden="true">
+            <svg class="wave wave-back" viewBox="0 0 1440 160" preserveAspectRatio="none">
+                <path
+                    d="M0,92L48,101.3C96,111,192,129,288,126.7C384,124,480,100,576,85.3C672,71,768,65,864,74.7C960,84,1056,108,1152,117.3C1248,127,1344,121,1392,117.3L1440,113L1440,160L1392,160C1344,160,1248,160,1152,160C1056,160,960,160,864,160C768,160,672,160,576,160C480,160,384,160,288,160C192,160,96,160,48,160L0,160Z">
+                </path>
+            </svg>
+            <svg class="wave wave-mid" viewBox="0 0 1440 160" preserveAspectRatio="none">
+                <path
+                    d="M0,113L48,106.7C96,101,192,87,288,76.7C384,65,480,59,576,68.7C672,79,768,107,864,108C960,108,1056,84,1152,70.7C1248,57,1344,55,1392,53.3L1440,52L1440,160L1392,160C1344,160,1248,160,1152,160C1056,160,960,160,864,160C768,160,672,160,576,160C480,160,384,160,288,160C192,160,96,160,48,160L0,160Z">
+                </path>
+            </svg>
+            <svg class="wave wave-front" viewBox="0 0 1440 160" preserveAspectRatio="none">
+                <path
+                    d="M0,78L40,76.7C80,75,160,73,240,77.3C320,81,400,89,480,102.7C560,116,640,136,720,137.3C800,139,880,121,960,102.7C1040,84,1120,65,1200,61.3C1280,57,1360,69,1400,74.7L1440,81L1440,160L1400,160C1360,160,1280,160,1200,160C1120,160,1040,160,960,160C880,160,800,160,720,160C640,160,560,160,480,160C400,160,320,160,240,160C160,160,80,160,40,160L0,160Z">
+                </path>
+            </svg>
+        </div>
+        <canvas id="footerOceanCanvas" class="footer-ocean-canvas" aria-hidden="true"></canvas>
+        <div class="footer-ocean-vignette" aria-hidden="true"></div>
+        <div class="footer-glitter-field" aria-hidden="true">
+            <span class="glitter g1"></span>
+            <span class="glitter g2"></span>
+            <span class="glitter g3"></span>
+            <span class="glitter g4"></span>
+            <span class="glitter g5"></span>
+            <span class="glitter g6"></span>
+            <span class="glitter g7"></span>
+            <span class="glitter g8"></span>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <img src="images/profile.jpg" alt="Profile" class="nav-profile-image"
+                            data-light-src="images/profile.jpg" data-dark-src="images/profile1.jpg" loading="lazy"
+                            decoding="async">
+                        Rahul Bhankhad<span></span>
+                    </a>
+                </div>
+                <p class="footer-text">Data Analyst | Transforming Data into Insights</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/rahul-bhankhad45/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/irahulbhankhad"><i class="fab fa-github"></i></a>
+                    <a href="https://www.kaggle.com/rahulbhankhad"><i class="fab fa-kaggle"></i></a>
+                    <a href="https://wa.me/918168414405" aria-label="Message on WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rahul Bhankhad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <div class="custom-cursor custom-cursor-ring" aria-hidden="true"></div>
+    <div class="custom-cursor custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-label" aria-hidden="true">View Project</div>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
