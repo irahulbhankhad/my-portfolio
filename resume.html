@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Download - Rahul Bhankhad</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Prevent VanillaTilt glare from blocking clicks on buttons/links */
+        .resume-download-card .js-tilt-glare {
+            pointer-events: none !important;
+        }
+        .resume-download-actions {
+            position: relative;
+            z-index: 10;
+        }
+        .resume-back-link {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+</head>
+
+<body class="resume-page">
+    <canvas id="fxCanvas" class="fx-canvas" aria-hidden="true"></canvas>
+    <main class="resume-page-main">
+        <section class="resume-download-card">
+            <h1>Resume</h1>
+            <p>Choose your preferred format and download my latest resume.</p>
+
+            <div class="resume-download-actions">
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </a>
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.docx" class="btn btn-secondary" download>
+                    <i class="fas fa-file-word"></i> Download DOCX
+                </a>
+                <a href="assets/docs/resume/Rahul_Bhankhad_Resume.pdf" class="btn btn-secondary" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fas fa-eye"></i> Preview PDF
+                </a>
+            </div>
+
+            <a href="index.html#resume" class="resume-back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </section>
+    </main>
+
+    <script>
+        (function syncTheme() {
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+            document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+        })();
+    </script>
+    <div class="custom-cursor custom-cursor-ring" aria-hidden="true"></div>
+    <div class="custom-cursor custom-cursor-dot" aria-hidden="true"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
